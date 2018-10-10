@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Form</title>
+</head>
+
+
+<div id="everything">
+    <div id="header">
+        <div id="banner">
+            <div id="menuBar">
+                <table width="100%">
+                    <tr>
+                        <td>Library</td>
+                        <td><span class="menuButton"><a href="index.html">Home</a></span></td>
+                        <td><span class="menuButton"><a href="bookform2.html">Add Books</a></span></td>
+                        <td><span class="menuButton"><a href="authorform.html">Add Authors</a></span></td>
+                        <td><span class="menuButton"><a href="asd.html">asd</a></span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <form action="addBook" method="post">
+            <table>
+                <tr>
+                    <td>Title</td>
+                    <td><input type="text" name="title" required="required" autofocus/></td>
+                </tr>
+                <tr>
+                    <td>Genre</td>
+                    <td><select name="genre" required="required">
+                        <option value="scifi">Scifi</option>
+                        <option value="triller">Triller</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>author</td>
+                    <td><input name="author" type="password"></td>
+                </tr>
+                <tr>
+                    <td>quantity</td>
+                    <td><input name="quantity" type="number" required="required"></td>
+                </tr>
+                <tr>
+                    <td>available</td>
+                    <td><input name="available" type="number" required="required"></td>
+                </tr>
+                <tr>
+                    <td>publisher</td>
+                    <td><input name="publisher" type="email" required="required"></td>
+                </tr>
+
+                <tr>
+                    <td><input  type="submit" value="Add Book"/></td>
+
+                </tr>
+            </table>
+
+
+
+        </form>
+    </div>
+
+
+</div>
+<body>
+
+</body>
+</html>
