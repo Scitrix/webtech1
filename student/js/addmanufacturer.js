@@ -11,7 +11,7 @@ $(function (){
             url: 'addManufacturer',
             data: $('form').serialize(),
             success: function () {
-                if (confirm("Submission successful! Would you like to see all the manufacturers?")) {
+                if (confirm("You succesfully added a manufacturer. Click ok to see all of them!")) {
                     $("#content").load("listmanufacturers.html");
                 }
             },
