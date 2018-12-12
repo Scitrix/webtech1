@@ -6,13 +6,13 @@ var manufacturers =
     [
         {"name": "Opel",                "country": "Germany",       "founded": "January 21, 1862"},
         {"name": "Toyota",              "country": "Japan",         "founded": "August 28, 1937"},
-        {"name": "KIA",                 "country": "Bad Korea",     "founded": "December 1, 1944"},
+        {"name": "Kia",                 "country": "Bad Korea",     "founded": "December 1, 1944"},
         {"name": "Skoda",               "country": "Czech",         "founded": "December 18, 1895"},
         {"name": "Ford",                "country": "USA",           "founded": "June 16, 1903"},
         {"name": "Tesla",               "country": "USA",           "founded": "July 1, 2003"},
         {"name": "Chevrolet",           "country": "USA",           "founded": "November 3, 1911"},
-        {"name": "Sungri Motor Plant",  "country": "True Korea",    "founded":"November 1, 1950"}
-    ];
+        {"name": "Sungri Motor Plant",  "country": "True Korea",    "founded": "November 1, 1950"}
+];
 var cars = [
     {
         "name": "Corolla",
@@ -45,7 +45,7 @@ var cars = [
         "name": "Saxo",
         "consumption": "4l/100km",
         "color": "blue",
-        "manufacturer": "KIA",
+        "manufacturer": "Kia",
         "available": 2,
         "year": 2001,
         "horsepower":65
@@ -53,7 +53,7 @@ var cars = [
     {
         "name": "Panda",
         "consumption": "6l/100km",
-        "color": "Red",
+        "color": "red",
         "manufacturer": "Tesla",
         "available": 1,
         "year": 2000,
@@ -99,7 +99,7 @@ var cars = [
         "name": "Ibiza",
         "consumption": "6l/100km",
         "color": "blue",
-        "manufacturer": "KIA",
+        "manufacturer": "Kia",
         "available": 100,
         "year": 2006,
         "horsepower": 120,
@@ -116,7 +116,7 @@ var cars = [
     {
         "name": "V40",
         "consumption": "5.6l/100km",
-        "color": "Ocean blue",
+        "color": "ocean blue",
         "manufacturer": "Volvo",
         "available": 1,
         "year": 2014,
@@ -170,38 +170,40 @@ var cars = [
     {
         "name": "P601",
         "consumption": "8l / 100km",
-        "color": "lightblue",
-        "manufacturer": "KIA",
+        "color": "light blue",
+        "manufacturer": "Kia",
         "available": 3,
         "year": 1964,
         "horsepower": 26
     }
-
 ];
+
 app.use(express.static(__dirname + '/student'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-
 app.use(bodyParser.json());
 
 app.get('/manufacturers', function (req, res) {
     res.send(manufacturers);
 });
+
 app.get('/manufacturerNames', function (req, res) {
-    var manufacturerNames = ["Opel","Toyota","KIA","Skoda","Ford","Tesla","Chevrolet","Sungri Motor Plant"];
-    /*for (var m of manufacturers) {
+    var manufacturerNames = [];
+    for (let m of manufacturers) {
         if (!manufacturerNames.includes(m.name)) {
             manufacturerNames.push(m.name);
         }
-    }*/
+    }
     res.send(manufacturerNames);
 });
+
 app.get('/cars', function (req, res) {
     res.send(cars);
 });
+
 app.get('/manufacturer', function (req, res) {
     var ok = false;
     for (var manufacturer of manufacturers) {
@@ -210,20 +212,19 @@ app.get('/manufacturer', function (req, res) {
             break;
         }
     }
-
     if (!ok) {
         res.status(409).end();
         return;
     }
-
     var manufacturerCars = [];
-    for (var car of cars) {
+    for (let car of cars) {
         if (req.cookies.name === car.manufacturer) {
             manufacturerCars.push(car);
         }
     }
     res.send(manufacturerCars);
 });
+
 app.post('/addCar', function (req, res) {
     for (var car of cars) {
         if (car.name === req.body.name) {
@@ -244,8 +245,7 @@ app.post('/addCar', function (req, res) {
     res.send(cars);
 });
 
-app.post('/addManufacturers', function (req, res) {
-
+app.post('/addManufacturer', function (req, res) {
     for (var m of manufacturers) {
         if (m.name === req.body.name) {
             res.status(409).end();
@@ -260,6 +260,7 @@ app.post('/addManufacturers', function (req, res) {
     manufacturers.push(manufacturer);
     res.send(manufacturers);
 });
+
 app.get('/', function (req, res) {
     res.sendFile(__dirname + "/student/" + "index.html");
 });
