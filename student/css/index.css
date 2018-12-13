@@ -1,8 +1,6 @@
-/*Style elements of body.*/
 body{
     background: dimgray;
 }
-/*Style elements of links*/
 a:Link{
     color:ghostwhite;
     text-decoration: none;
@@ -11,7 +9,6 @@ a:visited{
     color:ghostwhite;
     text-decoration: none;
 }
-/*Style elements of basic buttons.*/
 button{
     background-color: dimgray;
     color: white;
@@ -27,7 +24,6 @@ button{
     font-size: 15px;
 }
 
-/*Style elements of main body, menu bar and the title.*/
 #everything{
     margin: auto;
     width: 100%;
@@ -65,7 +61,6 @@ button{
 #menuBar .menuButton:HOVER{
     background-color: black;
 }
-/*Style elements of the loaded content HTMLs in general.*/
 #content_outer{
     background: lightgrey;
     margin-top: 100px;
@@ -77,18 +72,15 @@ button{
     margin-left: 20px;
     margin-right: 20px;
 }
-/*Style elements of the assignment description titles.*/
 #header{
     text-align: left;
     font-size: 45px;
     color: dimgray;
 }
-/*Style elements of the assignment description div.*/
 #Description{
     display: none;
     padding-bottom: 5px;
 }
-/*Style elements of the "database" listing tables.*/
 #allTable{
     border-collapse: collapse;
     text-align: center;
@@ -106,7 +98,6 @@ button{
     border: none;
 }
 
-/*Style elements of the forms used to add data to the "database".*/
 input[type=text], input[type=date], input[type=number], select{
     width: 100%;
     padding: 12px;
